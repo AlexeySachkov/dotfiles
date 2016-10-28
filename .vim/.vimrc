@@ -25,6 +25,12 @@ set tabstop=4
 set ruler
 set number
 set colorcolumn=80
+set wrap
+
+set showmatch
+set hlsearch
+set incsearch
+set smartcase
 
 set splitbelow
 set splitright
