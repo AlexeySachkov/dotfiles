@@ -27,7 +27,6 @@ set number
 set colorcolumn=80
 set wrap
 
-set showmatch
 set hlsearch
 set incsearch
 set smartcase
@@ -42,8 +41,14 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 :nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+" map <F7> mzgg=G`z
 
 :set list
 :set listchars=tab:>-
+
+filetype plugin indent on
+
+:let g:phpqa_messdetector_autorun = 0
+:let g:phpqa_codesniffer_autorun = 0
 
 execute pathogen#infect()
