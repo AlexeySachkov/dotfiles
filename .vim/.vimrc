@@ -29,6 +29,7 @@ set wrap
 
 set hlsearch
 set incsearch
+set ignorecase
 set smartcase
 
 set splitbelow
@@ -41,14 +42,17 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 :nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
-" map <F7> mzgg=G`z
 
 :set list
-:set listchars=tab:>-
+:set listchars=tab:>-,trail:.
 
 filetype plugin indent on
 
+" phpqa plugin settings
 :let g:phpqa_messdetector_autorun = 0
 :let g:phpqa_codesniffer_autorun = 0
+
+" vim-notes plugin settings
+:let g:notes_suffix = '.md'
 
 execute pathogen#infect()
