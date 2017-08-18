@@ -8,18 +8,17 @@ colorscheme desert
 set scrolljump=7
 set scrolloff=7
 
-syntax on
-
 set expandtab
 set smarttab
 set smartindent
-set softtabstop=4
-set shiftwidth=4
+set softtabstop=2
+set shiftwidth=2
 set tabstop=4
 
 set ruler
 set number
 set colorcolumn=80
+set cursorline
 set wrap
 
 set hlsearch
@@ -36,11 +35,13 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-:nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+:nnoremap <silent> <F9> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+:map <F2> :NERDTreeToggle<CR>
 
 :set list
-:set listchars=tab:>-,trail:.
+:set listchars=tab:»~,trail:·
 
+syntax on
 filetype plugin indent on
 
 " phpqa plugin settings

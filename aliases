@@ -1,0 +1,7 @@
+
+alias l='ls -l --color --block-size=1024'
+alias la='ls -la --color --block-size=1024'
+
+alias ..='cd ..'
+alias ...='cd ../..'
+alias cd..='cd ..'

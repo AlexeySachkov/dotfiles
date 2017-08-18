@@ -1,0 +1,12 @@
+- defaults:
+    link:
+        relink: true
+        create: true
+
+- link:
+    ~/.vim:
+        path: vim
+    ~/.vimrc: vim/vimrc
+    ~/.profile.asachkov: profile
+    ~/.aliases: aliases
+
