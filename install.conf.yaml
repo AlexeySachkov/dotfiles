@@ -3,10 +3,15 @@
         relink: true
         create: true
 
+- clean: ['~']
+
 - link:
-    ~/.vim:
-        path: vim
+    ~/.vim: vim
     ~/.vimrc: vim/vimrc
     ~/.profile.asachkov: profile
     ~/.aliases: aliases
+    ~/.gitignore: gitignore
 
+- shell:
+    - [git submodule update --init --recursive, Installing and updating submodules]
+    - [vim +PluginInstall +qall, Installing vim plugins]
