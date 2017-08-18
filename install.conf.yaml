@@ -11,6 +11,7 @@
     ~/.profile.asachkov: profile
     ~/.aliases: aliases
     ~/.gitignore: gitignore
+    ~/.tmux.conf: tmux.conf
 
 - shell:
     - [git submodule update --init --recursive, Installing and updating submodules]
