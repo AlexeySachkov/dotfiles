@@ -16,6 +16,10 @@ Plugin 'scrooloose/nerdtree'
 " nice color scheme
 Plugin 'vim-scripts/wombat256.vim'
 
+Plugin 'airblade/vim-gitgutter'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+
 " vim-notes
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-notes'
@@ -79,3 +83,6 @@ syntax on
 " vim-notes plugin settings
 :let g:notes_suffix = '.md'
 :let g:notes_directories = ['~/vim-notes']
+
+" vim-airline plugin settings
+:let g:airline#extensions#tabline#enabled = 1
