@@ -14,11 +14,14 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 
 " nice color scheme
-Plugin 'vim-scripts/wombat256.vim'
+Plugin 'AlexeySachkov/wombat256.vim'
 
-Plugin 'airblade/vim-gitgutter'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+
+" Git integrations
+Plugin 'airblade/vim-gitgutter'
+Plugin 'tpope/vim-fugitive'
 
 " vim-notes
 Plugin 'xolox/vim-misc'
@@ -45,9 +48,10 @@ set tabstop=4
 
 set ruler
 set number
-set colorcolumn=80
 set cursorline
 set wrap
+
+let &colorcolumn=join(range(81,999),",")
 
 set hlsearch
 set incsearch
@@ -86,3 +90,8 @@ syntax on
 
 " vim-airline plugin settings
 :let g:airline#extensions#tabline#enabled = 1
+" I don't use buffers and this feature slows vim with many buffers opened
+:let g:airline#extensions#tabline#show_buffers = 0
+
+" clang-format integration
+map <F7> :py3f ~/clang-format-py3.py
