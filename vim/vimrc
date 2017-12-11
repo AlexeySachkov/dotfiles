@@ -16,8 +16,11 @@ Plugin 'scrooloose/nerdtree'
 " nice color scheme
 Plugin 'AlexeySachkov/wombat256.vim'
 
+" status bar
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+
+Plugin 'mileszs/ack.vim'
 
 " Git integrations
 Plugin 'airblade/vim-gitgutter'
@@ -92,6 +95,10 @@ syntax on
 :let g:airline#extensions#tabline#enabled = 1
 " I don't use buffers and this feature slows vim with many buffers opened
 :let g:airline#extensions#tabline#show_buffers = 0
+
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
 
 " clang-format integration
 map <F7> :py3f ~/clang-format-py3.py
