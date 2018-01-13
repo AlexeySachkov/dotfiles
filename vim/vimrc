@@ -54,6 +54,7 @@ set number
 set cursorline
 set wrap
 
+" FIXME: cursorline doesn't work in the area which colored by colorcolumn
 let &colorcolumn=join(range(81,999),",")
 
 set hlsearch
@@ -70,6 +71,8 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+" TODO: Add `guest` switch: in `guest` mode scrolling by mouse wheel should be
+" available
 noremap <Left> <Nop>
 noremap <Right> <Nop>
 noremap <Up> <Nop>
@@ -81,6 +84,7 @@ inoremap <Down> <Nop>
 
 :nnoremap <silent> <F9> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 :map <F2> :NERDTreeToggle<CR>
+" TODO: Add `paste` switch
 
 :set list
 :set listchars=tab:»~,trail:·
@@ -95,6 +99,8 @@ syntax on
 :let g:airline#extensions#tabline#enabled = 1
 " I don't use buffers and this feature slows vim with many buffers opened
 :let g:airline#extensions#tabline#show_buffers = 0
+" TODO: remove branch name from status bar
+" TODO: update current position section: remove all except curline/numoflines : column
 
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
@@ -102,3 +108,8 @@ endif
 
 " clang-format integration
 map <F7> :py3f ~/clang-format-py3.py
+
+augroup filetypedetect
+  au BufRead,BufNewFile *.cl set filetype=c
+  " associate *.cl with c filetype
+augroup END
