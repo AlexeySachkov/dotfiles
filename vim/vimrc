@@ -71,20 +71,7 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-" TODO: Add `guest` switch: in `guest` mode scrolling by mouse wheel should be
-" available
-noremap <Left> <Nop>
-noremap <Right> <Nop>
-noremap <Up> <Nop>
-noremap <Down> <Nop>
-inoremap <Left> <Nop>
-inoremap <Right> <Nop>
-inoremap <Up> <Nop>
-inoremap <Down> <Nop>
-
 :nnoremap <silent> <F9> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
-:map <F2> :NERDTreeToggle<CR>
-" TODO: Add `paste` switch
 
 :set list
 :set listchars=tab:»~,trail:·
@@ -113,3 +100,12 @@ augroup filetypedetect
   au BufRead,BufNewFile *.cl set filetype=c
   " associate *.cl with c filetype
 augroup END
+
+let s:vimrc_dir = expand('<sfile>:p:h')
+let s:vimrc_additional_configs = [
+\ 'toggles.vim'
+\ ]
+
+for config_file in s:vimrc_additional_configs
+  execute('source ' . s:vimrc_dir . '/.dotfiles/vim/' . config_file)
+endfor
