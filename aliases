@@ -1,7 +1,15 @@
 
+# Directories listing
 alias l='ls -l --color --block-size=1024'
 alias la='ls -la --color --block-size=1024'
 
+# Changing directory
 alias ..='cd ..'
 alias ...='cd ../..'
 alias cd..='cd ..'
+
+# Grep
+alias grep='grep --color'
+
+# tar.gz
+alias untargz='tar -zxvf'

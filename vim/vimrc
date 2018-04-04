@@ -78,6 +78,9 @@ nnoremap <C-H> <C-W><C-H>
 
 syntax on
 
+" TODO: let's use FZF and buffers
+
+" TODO: look at other note plugins, maybe there are something better?
 " vim-notes plugin settings
 :let g:notes_suffix = '.md'
 :let g:notes_directories = ['~/vim-notes']
@@ -88,6 +91,7 @@ syntax on
 :let g:airline#extensions#tabline#show_buffers = 0
 " TODO: remove branch name from status bar
 " TODO: update current position section: remove all except curline/numoflines : column
+" TODO: switch to lightline? What about tabs color?
 
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'

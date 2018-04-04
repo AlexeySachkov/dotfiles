@@ -1,3 +1,4 @@
+set -o vi
 
 export LC_ALL=en_US.utf8
 export TERM=xterm-256color

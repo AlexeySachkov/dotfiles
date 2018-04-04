@@ -12,6 +12,7 @@
     ~/.aliases: aliases
     ~/.gitignore: gitignore
     ~/.tmux.conf: tmux.conf
+    ~/.gdbinit: gdbinit
 
 - shell:
     - [git submodule update --init --recursive, Installing and updating submodules]
