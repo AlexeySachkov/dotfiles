@@ -10,32 +10,33 @@ let g:lightline = {
 \   },
 \   'active': {
 \     'left': [
-\       ['mode', 'paste', 'guest'], ['readonly', 'modified'], ['relativepath']
+\       ['mode', 'paste', 'guest'], ['hunks'], ['relativepath'],
+\       ['readonly', 'modified']
 \     ],
 \     'right': [
-\       ['lineinfo'], ['fileinfo'], ['hunks']
+\       ['lineinfo'], ['fileinfo'], ['filetype']
 \     ]
 \   },
 \   'inactive': {
 \     'left': [
-\       ['filename']
+\      ['mode'], ['filename']
 \     ],
 \     'right': [
-\       ['lineinfo'], ['fileinfo']
+\       ['lineinfo'], ['fileinfo'], ['filetype']
 \     ]
 \   },
 \   'component': {
-\     'mode': '%{&filetype==#"nerdtree"?"":lightline#mode()}',
+\     'mode': '%{&filetype==#"nerdtree"?"NERDTree":lightline#mode()}',
 \     'paste': '%{&filetype==#"nerdtree"?"":&paste?"PASTE":""}',
 \     'guest': '%{&filetype==#"nerdtree"?"":g:m_guest_mode_scrolling_enabled?"GUEST":""}',
 \     'modified': '%{&filetype==#"nerdtree"?"":&modified?"+":""}',
 \     'lineinfo': '%{&filetype==#"nerdtree"?"":printf("%3d:%-2d/%-3d",line("."),col("."),line("$"))}',
-\     'filename': '%{&filetype==#"nerdtree"?"NERDTree":expand("%:t")==""?"[No Name]":expand("%:t")}',
-\     'relativepath': '%{&filetype==#"nerdtree"?"NERDTree":expand("%")==""?"[No Name]":expand("%")}',
-\     'fileinfo': '%{&filetype==#"nerdtree"?"":(&fenc!=#""?&fenc:&enc)."[".&ff."]"}'
+\     'filename': '%{&filetype==#"nerdtree"?"":expand("%:t")==""?"[No Name]":expand("%:t")}',
+\     'relativepath': '%{&filetype==#"nerdtree"?"":expand("%")==""?"[No Name]":expand("%")}',
+\     'fileinfo': '%{&filetype==#"nerdtree"?"":(&fenc!=#""?&fenc:&enc)."[".&ff."]"}',
+\     'filetype': '%{&filetype==#"nerdtree"?"":&filetype}'
 \   },
 \   'component_visible_condition': {
-\     'mode': '&filetype!=#"nerdtree"',
 \     'paste': '&filetype!=#"nerdtree"&&&paste',
 \     'guest': '&filetype!=#"nerdtree"&&g:m_guest_mode_scrolling_enabled',
 \     'modified': '&filetype!=#"nerdtree"&&&modified'
