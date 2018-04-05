@@ -17,8 +17,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'AlexeySachkov/wombat256.vim'
 
 " status bar
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+Plugin 'itchyny/lightline.vim'
 
 Plugin 'mileszs/ack.vim'
 
@@ -85,14 +84,6 @@ syntax on
 :let g:notes_suffix = '.md'
 :let g:notes_directories = ['~/vim-notes']
 
-" vim-airline plugin settings
-:let g:airline#extensions#tabline#enabled = 1
-" I don't use buffers and this feature slows vim with many buffers opened
-:let g:airline#extensions#tabline#show_buffers = 0
-" TODO: remove branch name from status bar
-" TODO: update current position section: remove all except curline/numoflines : column
-" TODO: switch to lightline? What about tabs color?
-
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
@@ -107,7 +98,8 @@ augroup END
 
 let s:vimrc_dir = expand('<sfile>:p:h')
 let s:vimrc_additional_configs = [
-\ 'toggles.vim'
+\ 'toggles.vim',
+\ 'lightline.vim'
 \ ]
 
 for config_file in s:vimrc_additional_configs
