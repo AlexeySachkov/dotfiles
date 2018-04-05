@@ -10,6 +10,13 @@ alias cd..='cd ..'
 
 # Grep
 alias grep='grep --color'
+alias grp='grep --color'
+
+# Vim
+alias v='vim'
+
+# Git
+alias gti='git'
 
 # tar.gz
 alias untargz='tar -zxvf'

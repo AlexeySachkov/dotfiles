@@ -24,7 +24,15 @@ function! GuestModeScrollingToggle()
   endif
 endfunction
 
-nnoremap <F4> :call GuestModeScrollingToggle()<CR>
+function! EchoGuestModeState()
+  if g:m_guest_mode_scrolling_enabled
+    echo "guest mode enabled"
+  else
+    echo "guest mode disabled"
+  endif
+endfunction
+
+nnoremap <F4> :call GuestModeScrollingToggle()<CR> :call EchoGuestModeState()<CR>
 imap <F4> <C-O><F4>
 let g:m_guest_mode_scrolling_enabled = 1
 call GuestModeScrollingToggle()
