@@ -19,7 +19,7 @@ let g:lightline = {
 \   },
 \   'inactive': {
 \     'left': [
-\      ['mode'], ['filename']
+\      ['filename'], ['readonly', 'modified']
 \     ],
 \     'right': [
 \       ['lineinfo'], ['fileinfo'], ['filetype']
@@ -31,12 +31,13 @@ let g:lightline = {
 \     'guest': '%{&filetype==#"nerdtree"?"":g:m_guest_mode_scrolling_enabled?"GUEST":""}',
 \     'modified': '%{&filetype==#"nerdtree"?"":&modified?"+":""}',
 \     'lineinfo': '%{&filetype==#"nerdtree"?"":printf("%3d:%-2d/%-3d",line("."),col("."),line("$"))}',
-\     'filename': '%{&filetype==#"nerdtree"?"":expand("%:t")==""?"[No Name]":expand("%:t")}',
+\     'filename': '%{&filetype==#"nerdtree"?"NERDTree":expand("%:t")==""?"[No Name]":expand("%:t")}',
 \     'relativepath': '%{&filetype==#"nerdtree"?"":expand("%")==""?"[No Name]":expand("%")}',
 \     'fileinfo': '%{&filetype==#"nerdtree"?"":(&fenc!=#""?&fenc:&enc)."[".&ff."]"}',
 \     'filetype': '%{&filetype==#"nerdtree"?"":&filetype}'
 \   },
 \   'component_visible_condition': {
+\     'mode': '&filetype!=#"nerdtree"',
 \     'paste': '&filetype!=#"nerdtree"&&&paste',
 \     'guest': '&filetype!=#"nerdtree"&&g:m_guest_mode_scrolling_enabled',
 \     'modified': '&filetype!=#"nerdtree"&&&modified'

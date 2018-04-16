@@ -25,6 +25,9 @@ Plugin 'mileszs/ack.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-fugitive'
 
+" FZF
+Plugin 'junegunn/fzf'
+
 " vim-notes
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-notes'
@@ -78,6 +81,7 @@ nnoremap <C-H> <C-W><C-H>
 syntax on
 
 " TODO: let's use FZF and buffers
+nmap :b :FZF<CR>
 
 " TODO: look at other note plugins, maybe there are something better?
 " vim-notes plugin settings
