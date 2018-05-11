@@ -45,6 +45,11 @@ build_ps_one() {
   echo "${username}@${hostname}:[ ${cwd} ] ${git_branch} ${1}\n\\$ "
 }
 
+build_ls_colors() {
+  local cyan_font="38;5;12"
+  echo "di=${cyan_font}"
+}
+
 # Functions to deal with PATH-like env variables
 # From https://stackoverflow.com/a/24522107/4983627
 

@@ -11,6 +11,7 @@ source ~/.dotfiles/functions.sh
 field_append PATH ~
 
 export PS1=$(build_ps_one)
+export LS_COLORS=$(build_ls_colors)
 
 if [ -r $HOME/.aliases ]; then
   . $HOME/.aliases
