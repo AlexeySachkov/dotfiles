@@ -19,14 +19,16 @@ Plugin 'AlexeySachkov/wombat256.vim'
 " status bar
 Plugin 'itchyny/lightline.vim'
 
-Plugin 'mileszs/ack.vim'
-
 " Git integrations
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-fugitive'
+" TODO: cohama/agit.vim
+
+" TODO: inkarkat/vim-mark
 
 " FZF
 Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
 
 " vim-notes
 Plugin 'xolox/vim-misc'
@@ -39,11 +41,28 @@ filetype plugin indent on    " required
 " At least let yourself know what mode you're in
 set showmode
 
+" Colors, syntax highlighting, etc
+syntax on
+
+if &term =~ '256color'
+  " disable Background Color Erase (BCE) so that color schemes
+  " render properly when inside 256-color tmux and GNU screen.
+  " see also http://snk.tuxfamily.org/log/vim-256color-bce.html
+  set t_ut=
+endif
 colorscheme wombat256mod
 
+" FIXME: cursorline doesn't work in the area which colored by colorcolumn
+let &colorcolumn=join(range(81,999),",")
+
+" Let's use space as leader
+let mapleader=" "
+
+" More productive scrolling
 set scrolljump=7
 set scrolloff=7
 
+" Some basic settings
 set expandtab
 set smarttab
 set smartindent
@@ -56,56 +75,70 @@ set number
 set cursorline
 set wrap
 
-" FIXME: cursorline doesn't work in the area which colored by colorcolumn
-let &colorcolumn=join(range(81,999),",")
+set splitbelow
+set splitright
 
 set hlsearch
 set incsearch
 set ignorecase
 set smartcase
 
-set splitbelow
-set splitright
+" Don't continue comments when pushing o/O
+" Looks like it doesn't work
+set formatoptions-=o
 
+" mark trailing spaces and tabs
+set list
+set listchars=tab:»~,trail:·
+
+" Strip trailing spaces in a whole file
+nnoremap <silent> <F9> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+
+" Switching between splits
 nnoremap <Tab> <C-W><C-W>
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-:nnoremap <silent> <F9> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
-
-:set list
-:set listchars=tab:»~,trail:·
-
-syntax on
-
-" TODO: let's use FZF and buffers
-nmap :b :FZF<CR>
-
-" TODO: look at other note plugins, maybe there are something better?
-" vim-notes plugin settings
-:let g:notes_suffix = '.md'
-:let g:notes_directories = ['~/vim-notes']
-
-if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
-endif
+" associate *.cl with c filetype
+augroup filetypedetect
+  au BufRead,BufNewFile *.cl set filetype=c
+augroup END
 
 " clang-format integration
 map <F7> :py3f ~/clang-format-py3.py
 
-augroup filetypedetect
-  au BufRead,BufNewFile *.cl set filetype=c
-  " associate *.cl with c filetype
-augroup END
+" Plugins configuration
+
+" TODO: let's use FZF and buffers
+nmap :b :Buffers<CR>
+
+" TODO: look at other note plugins, maybe there are something better?
+" vim-notes plugin settings
+let g:notes_suffix = '.md'
+let g:notes_directories = ['~/vim-notes']
+
+" My vim configuration is split into several files:
+"
+" toggles.vim - contains toggle keybindings and all corresponding code.
+" Examples: paste mode, guest mode, NERDTree
+"
+" lightline.vim - constains configuration for lightline plugin
+"
+" experiments.vim - special file with dummy or temporary stuff that need to be
+" tested/evaluated/developed first
 
 let s:vimrc_dir = expand('<sfile>:p:h')
 let s:vimrc_additional_configs = [
 \ 'toggles.vim',
-\ 'lightline.vim'
+\ 'lightline.vim',
+\ 'experiments.vim'
 \ ]
 
 for config_file in s:vimrc_additional_configs
-  execute('source ' . s:vimrc_dir . '/.dotfiles/vim/' . config_file)
+  let config_file_path = s:vimrc_dir . '/.dotfiles/vim/' . config_file
+  if filereadable(config_file_path)
+    execute('source ' . config_file_path)
+  endif
 endfor
