@@ -58,6 +58,11 @@ let &colorcolumn=join(range(81,999),",")
 " Let's use space as leader
 let mapleader=" "
 
+nnoremap <leader>q :q<CR>
+nnoremap <leader>qa :qall<CR>
+nnoremap <leader>wq :wq<CR>
+nnoremap <leader>w :w<CR>
+
 " More productive scrolling
 set scrolljump=7
 set scrolloff=7
@@ -112,7 +117,8 @@ map <F7> :py3f ~/clang-format-py3.py
 " Plugins configuration
 
 " TODO: let's use FZF and buffers
-nmap :b :Buffers<CR>
+nnoremap <leader>b :Buffers<CR>
+nnoremap <leader>f :Files<CR>
 
 " TODO: look at other note plugins, maybe there are something better?
 " vim-notes plugin settings

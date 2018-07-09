@@ -1,0 +1,8 @@
+set editing-mode vi
+
+set completion-ignore-case on
+set show-mode-in-prompt off
+
+set keymap vi-command
+"j": history-search-forward
+"k": history-search-backward
