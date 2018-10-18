@@ -1,7 +1,7 @@
 
 # Directories listing
-alias l='ls -l --color --block-size=1024'
-alias la='ls -la --color --block-size=1024'
+alias l='ls -lh --color --block-size=1024'
+alias la='ls -lah --color --block-size=1024'
 
 # Changing directory
 alias ..='cd ..'

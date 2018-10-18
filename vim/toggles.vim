@@ -44,3 +44,21 @@ set pastetoggle=<F12>
 
 " NERDTree
 :map <F2> :NERDTreeToggle<CR>
+
+" Spell checking
+function! SpellCheckModeToggle()
+  if g:m_spell_check_enabled
+    set nospell
+    echo "spell checking disabled"
+    let g:m_spell_check_enabled = 0
+  else
+    set spell spelllang=en_us
+    echo "spell checking enabled"
+    let g:m_spell_check_enabled = 1
+  endif
+endfunction
+
+" FIXME: spell errors highlighting looks ugly with my colorscheme
+nnoremap <F8> :call SpellCheckModeToggle()<CR>
+inoremap <F8> <C-O><F8>
+let g:m_spell_check_enabled = 0

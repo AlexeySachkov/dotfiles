@@ -89,7 +89,7 @@ set ignorecase
 set smartcase
 
 " Don't continue comments when pushing o/O
-" Looks like it doesn't work
+" FIXME: Looks like it doesn't work
 set formatoptions-=o
 
 " mark trailing spaces and tabs
@@ -112,13 +112,16 @@ augroup filetypedetect
 augroup END
 
 " clang-format integration
-map <F7> :py3f ~/clang-format-py3.py
+noremap <leader>cf :py3f ~/clang-format-py3.py<CR>
+" for backward compatibility
+noremap <F7> :py3f ~/clang-format-py3.py<CR>
 
 " Plugins configuration
 
-" TODO: let's use FZF and buffers
+" let's use FZF and buffers
 nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>f :Files<CR>
+nnoremap <leader>ag :Ag<CR>
 
 " TODO: look at other note plugins, maybe there are something better?
 " vim-notes plugin settings
