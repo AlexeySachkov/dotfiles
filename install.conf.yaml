@@ -7,8 +7,8 @@
 
 - link:
     ~/.vim: vim
-    ~/.vimrc: vim/vimrc
     ~/.profile.asachkov: profile
+    ~/.bashrc.asachkov: bashrc
     ~/.aliases: aliases
     ~/.gitignore: gitignore
     ~/.tmux.conf: tmux.conf

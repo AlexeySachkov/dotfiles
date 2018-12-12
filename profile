@@ -7,6 +7,7 @@ stty erase "^?"
 source ~/.dotfiles/functions.sh
 
 field_append PATH ~
+field_prepend PATH /usr/local/bin # New manually-built vim 8
 
 export PS1=$(build_ps_one)
 export LS_COLORS=$(build_ls_colors)
@@ -18,3 +19,4 @@ fi
 if [ -r $HOME/.profile.asachkov.internal ]; then
   . $HOME/.profile.asachkov.internal
 fi
+
