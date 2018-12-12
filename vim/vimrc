@@ -112,9 +112,7 @@ augroup filetypedetect
 augroup END
 
 " clang-format integration
-noremap <leader>cf :py3f ~/clang-format-py3.py<CR>
-" for backward compatibility
-noremap <F7> :py3f ~/clang-format-py3.py<CR>
+noremap <leader>r :py3f ~/clang-format-py3.py<CR>
 
 " Plugins configuration
 
