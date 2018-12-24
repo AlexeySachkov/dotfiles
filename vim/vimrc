@@ -33,6 +33,7 @@ Plugin 'junegunn/fzf.vim'
 " vim-notes
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-notes'
+" TODO: SidOfc/mkdx
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -88,6 +89,9 @@ set incsearch
 set ignorecase
 set smartcase
 
+" Be able to delete whitespaces and empty lines using 'backspace' key
+set backspace=indent,eol,start
+
 " Don't continue comments when pushing o/O
 " FIXME: Looks like it doesn't work
 set formatoptions-=o
@@ -99,12 +103,12 @@ set listchars=tab:»~,trail:·
 " Strip trailing spaces in a whole file
 nnoremap <silent> <F9> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
-" Switching between splits
-nnoremap <Tab> <C-W><C-W>
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
+" Switching between tabs
+nnoremap <Tab> :tabnext<CR>
+nnoremap <S-Tab> :tabprev<CR>
+" Including tab with terminal
+tnoremap <S-Tab> <C-W>:tabnext<CR>
+tnoremap <C-W>u <C-W>N<C-U>
 
 " associate *.cl with c filetype
 augroup filetypedetect
