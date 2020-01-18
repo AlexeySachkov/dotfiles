@@ -1,3 +1,4 @@
+# vim: filetype=sh
 
 # Directories listing
 alias l='ls -lh --color --block-size=1024'
