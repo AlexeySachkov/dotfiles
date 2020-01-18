@@ -42,9 +42,6 @@ nnoremap <F12> :set paste! paste?<CR>
 imap <F12> <C-O><F12>
 set pastetoggle=<F12>
 
-" NERDTree
-:map <F2> :NERDTreeToggle<CR>
-
 " Spell checking
 function! SpellCheckModeToggle()
   if g:m_spell_check_enabled

@@ -10,9 +10,6 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-" files explorer (NERDTree)
-Plugin 'scrooloose/nerdtree'
-
 " nice color scheme
 Plugin 'AlexeySachkov/wombat256.vim'
 
@@ -132,7 +129,7 @@ let g:notes_directories = ['~/vim-notes']
 " My vim configuration is split into several files:
 "
 " toggles.vim - contains toggle keybindings and all corresponding code.
-" Examples: paste mode, guest mode, NERDTree
+" Examples: paste mode, guest mode
 "
 " lightline.vim - constains configuration for lightline plugin
 "
