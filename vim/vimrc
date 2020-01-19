@@ -100,8 +100,24 @@ set listchars=tab:»~,trail:·
 " Strip trailing spaces in a whole file
 nnoremap <silent> <F9> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
-" Switching between tabs
 if has('terminal')
+  " Helper to open terminal in a vertical split instead of horizontal
+  command Terminal :vert terminal
+
+  " Used to disable 'number' option for a terminal buffer. The tricky thing is
+  " that 'number' is a window-local option, so, we need to enable it again
+  " when a terminal buffer is removed from a window
+  function! TerminalOptions()
+    autocmd BufEnter <buffer> setlocal nonumber
+    autocmd BufWinLeave <buffer> setlocal number
+  endfunction
+
+  " When a terminal buffer created, tweak it:
+  " - set buffer to hidden to be able to hide it
+  " - disable 'number' for that buffer
+  autocmd TerminalOpen * call TerminalOptions()
+  autocmd TerminalOpen * set bufhidden=hide
+
   " Easy way to start scroling within terminal
   tnoremap <C-U> <C-W>N<C-U>
 endif
