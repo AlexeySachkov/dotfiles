@@ -117,15 +117,7 @@ if has('terminal')
   " - disable 'number' for that buffer
   autocmd TerminalOpen * call TerminalOptions()
   autocmd TerminalOpen * set bufhidden=hide
-
-  " Easy way to start scroling within terminal
-  tnoremap <C-U> <C-W>N<C-U>
 endif
-
-" associate *.cl with c filetype
-augroup filetypedetect
-  au BufRead,BufNewFile *.cl set filetype=c
-augroup END
 
 " clang-format integration
 noremap <leader>r :py3f ~/clang-format-py3.py<CR>
