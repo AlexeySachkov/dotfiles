@@ -28,9 +28,13 @@ Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
 
 " vim-notes
+" TODO: remove notes
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-notes'
 " TODO: SidOfc/mkdx
+
+Plugin 'AlexeySachkov/llvm-vim'
+Plugin 'kbenzie/vim-spirv'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -135,6 +139,11 @@ nnoremap <leader>ag :Ag<CR>
 " vim-notes plugin settings
 let g:notes_suffix = '.md'
 let g:notes_directories = ['~/vim-notes']
+
+let g:spirv_enable_current_id = 0
+let g:spirv_enable_extinst_error = 0
+" TODO: consider enabling this as it might be pretty useful
+let g:spirv_enable_autodisassemble = 0
 
 " My vim configuration is split into several files:
 "
