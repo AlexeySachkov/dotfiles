@@ -1,23 +1,16 @@
 # vim: filetype=sh
 
 # Directories listing
-alias l='ls -lh --color --block-size=1024'
-alias la='ls -lah --color --block-size=1024'
+alias l='ls -lh --color'
+alias la='ls -lah --color'
 
 # Changing directory
 alias ..='cd ..'
 alias ...='cd ../..'
-alias cd..='cd ..'
 
 # Grep
-alias grep='grep --color'
-alias grp='grep --color'
-
-# Vim
-alias v='vim'
-
-# Git
-alias gti='git'
+alias g='grep -rn --color'
+alias gi='grep -rni --color'
 
 # tar.gz
 alias untargz='tar -zxvf'
