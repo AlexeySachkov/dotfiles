@@ -112,11 +112,13 @@ if has('terminal')
     autocmd BufWinLeave <buffer> setlocal number
   endfunction
 
-  " When a terminal buffer created, tweak it:
-  " - set buffer to hidden to be able to hide it
-  " - disable 'number' for that buffer
-  autocmd TerminalOpen * call TerminalOptions()
-  autocmd TerminalOpen * set bufhidden=hide
+  if exists("##TerminalOpen")
+    " When a terminal buffer created, tweak it:
+    " - set buffer to hidden to be able to hide it
+    " - disable 'number' for that buffer
+    autocmd TerminalOpen * call TerminalOptions()
+    autocmd TerminalOpen * set bufhidden=hide
+  endif
 endif
 
 " clang-format integration
