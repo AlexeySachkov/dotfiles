@@ -8,6 +8,8 @@ stty erase "^?"
 # Helper functions
 source ~/.dotfiles/functions.sh
 
+export EDITOR=vim
+
 field_append PATH ~
 field_prepend PATH /usr/local/bin # New manually-built vim 8
 
