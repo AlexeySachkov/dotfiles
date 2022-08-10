@@ -10,7 +10,7 @@ source ~/.dotfiles/functions.sh
 
 export EDITOR=vim
 
-field_append PATH ~
+field_append PATH ~/bin
 field_prepend PATH /usr/local/bin # New manually-built vim 8
 
 export PS1=$(build_ps_one)
