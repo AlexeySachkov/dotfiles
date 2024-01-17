@@ -165,7 +165,7 @@ let s:vimrc_additional_configs = [
 \ ]
 
 for config_file in s:vimrc_additional_configs
-  let config_file_path = s:vimrc_dir . '/.dotfiles/vim/' . config_file
+  let config_file_path = s:vimrc_dir . '/' . config_file
   if filereadable(config_file_path)
     execute('source ' . config_file_path)
   endif
