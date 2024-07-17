@@ -10,8 +10,8 @@ source ~/.dotfiles/functions.sh
 
 export EDITOR=vim
 
-field_append PATH ~/bin
-field_prepend PATH /usr/local/bin # New manually-built vim 8
+# Some manually pre-built tools, like vim & clang-format
+field_prepend PATH ~/bin
 
 export PS1=$(build_ps_one)
 export LS_COLORS=$(build_ls_colors)
