@@ -18,7 +18,7 @@ Plugin 'itchyny/lightline.vim'
 
 " Git integrations
 Plugin 'airblade/vim-gitgutter'
-Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-fugitive' " TODO: consider removing it, it is unused
 " TODO: cohama/agit.vim
 
 " TODO: inkarkat/vim-mark
@@ -27,10 +27,6 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
 
-" vim-notes
-" TODO: remove notes
-Plugin 'xolox/vim-misc'
-Plugin 'xolox/vim-notes'
 " TODO: SidOfc/mkdx
 
 Plugin 'AlexeySachkov/llvm-vim'
