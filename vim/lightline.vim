@@ -2,6 +2,9 @@
 
 " TODO: udpate colors (wombat from airline looks better than wombat from
 " lightline)
+" FIXME: modified component is displayed for terminal buffer regardless of the
+" component_visible_condition
+" FIXME: component visible condition for 'guest' component doesn't work
 
 let g:lightline = {
 \   'colorscheme': 'wombat',
@@ -19,28 +22,23 @@ let g:lightline = {
 \   },
 \   'inactive': {
 \     'left': [
-\      ['filename'], ['readonly', 'modified']
+\      ['relativepath'], ['readonly', 'modified']
 \     ],
 \     'right': [
 \       ['lineinfo'], ['fileinfo'], ['filetype']
 \     ]
 \   },
 \   'component': {
-\     'mode': '%{&filetype==#"nerdtree"?"NERDTree":lightline#mode()}',
-\     'paste': '%{&filetype==#"nerdtree"?"":&paste?"PASTE":""}',
-\     'guest': '%{&filetype==#"nerdtree"?"":g:m_guest_mode_scrolling_enabled?"GUEST":""}',
-\     'modified': '%{&filetype==#"nerdtree"?"":&modified?"+":""}',
-\     'lineinfo': '%{&filetype==#"nerdtree"?"":printf("%3d:%-2d/%-3d",line("."),col("."),line("$"))}',
-\     'filename': '%{&filetype==#"nerdtree"?"NERDTree":expand("%:t")==""?"[No Name]":expand("%:t")}',
-\     'relativepath': '%{&filetype==#"nerdtree"?"":expand("%")==""?"[No Name]":expand("%")}',
-\     'fileinfo': '%{&filetype==#"nerdtree"?"":(&fenc!=#""?&fenc:&enc)."[".&ff."]"}',
-\     'filetype': '%{&filetype==#"nerdtree"?"":&filetype}'
+\     'guest': '%{g:m_guest_mode_scrolling_enabled?"GUEST":""}',
+\     'lineinfo': '%{printf("%03d:%02d/%03d",line("."),col("."),line("$"))}',
+\     'relativepath': '%{expand("%")==""?"[No Name]":expand("%")}',
+\     'fileinfo': '%{(&fenc!=#""?&fenc:&enc)."[".&ff."]"}',
+\     'modified': '%m'
 \   },
 \   'component_visible_condition': {
-\     'mode': '&filetype!=#"nerdtree"',
-\     'paste': '&filetype!=#"nerdtree"&&&paste',
-\     'guest': '&filetype!=#"nerdtree"&&g:m_guest_mode_scrolling_enabled',
-\     'modified': '&filetype!=#"nerdtree"&&&modified'
+\     'guest': 'g:m_guest_mode_scrolling_enabled',
+\     'modified': '&modifiable&&&modified',
+\     'hunks': '%{mode()!=#"t"}'
 \   },
 \   'component_function': {
 \     'hunks': 'LLGitGutterHunks'
