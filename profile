@@ -13,6 +13,11 @@ export EDITOR=vim
 # Some manually pre-built tools, like vim & clang-format
 field_prepend PATH ~/bin
 
+# Quicker and better search with fzf through ag
+if type ag &> /dev/null; then
+    export FZF_DEFAULT_COMMAND='ag -p ~/.gitignore -g ""'
+fi
+
 export PS1=$(build_ps_one)
 export LS_COLORS=$(build_ls_colors)
 
