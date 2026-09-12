@@ -1,3 +1,4 @@
+source ~/.profile.asachkov
 source ~/.aliases
 
 bindkey -v
