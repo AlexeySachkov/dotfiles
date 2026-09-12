@@ -15,6 +15,7 @@
     ~/.gdbinit: gdbinit
     ~/.inputrc: inputrc
     ~/.zshrc: zshrc
+    ~/.rgignore: rgignore
 
 - shell:
     - [git submodule update --init --recursive, Installing and updating submodules]
