@@ -1,25 +1,17 @@
 # vim: filetype=sh
 
-if [ -z "$ZSH_VERSION" ]; then
-  # Don't export this on macOS, it breaks everything
-  export LC_ALL=en_US.utf8
-fi
+export LC_ALL=en_US.utf8
 export TERM=xterm-256color
-if type shopt > /dev/null; then
-  shopt -s checkwinsize
-fi
+shopt -s checkwinsize
 stty erase "^?"
 
 # Helper functions
-SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
-source ${SCRIPT_DIR}/functions.sh
+source ~/.dotfiles/functions.sh
 
 export EDITOR=vim
 
 # Some manually pre-built tools, like vim & clang-format
-# FIXME: field_prepend doesn't seem to work with zsh
-# field_prepend PATH ~/bin
-export PATH=~/bin:$PATH
+field_prepend PATH ~/bin
 
 # Quicker and better search with fzf through ag, or rg
 if type ag &> /dev/null; then
@@ -28,11 +20,8 @@ elif type rg &> /dev/null; then
     export FZF_DEFAULT_COMMAND='rg --files --hidden'
 fi
 
-if [ -z "$ZSH_VERSION" ]; then
-  # zsh uses its own syntax for functions, so those calls result in gibberish
-  export PS1=$(build_ps_one)
-  export LS_COLORS=$(build_ls_colors)
-fi
+export PS1=$(build_ps_one)
+export LS_COLORS=$(build_ls_colors)
 
 if [ -r $HOME/.aliases ]; then
   . $HOME/.aliases
