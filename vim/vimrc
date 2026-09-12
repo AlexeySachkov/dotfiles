@@ -130,6 +130,7 @@ noremap <leader>r :py3f ~/clang-format-py3.py<CR>
 nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>f :Files<CR>
 nnoremap <leader>ag :Ag<CR>
+nnoremap <leader>rg :Rg<CR>
 
 let g:fzf_layout = { 'down': '40%' }
 
