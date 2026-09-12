@@ -1,6 +1,9 @@
 # vim: filetype=sh
 
-export LC_ALL=en_US.utf8
+if [ -z "$ZSH_VERSION" ]; then
+  # Don't export this on macOS, it breaks everything
+  export LC_ALL=en_US.utf8
+fi
 export TERM=xterm-256color
 if type shopt > /dev/null; then
   shopt -s checkwinsize
